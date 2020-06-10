@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="22px" viewBox="0 0 18 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>notifications</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mockup_moodle-design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-/-CourseOverview-Blocks" transform="translate(-1077.000000, -26.000000)">
+            <g id="MainMenu">
+                <g id="notifications" transform="translate(1072.000000, 23.000000)">
+                    <g>
+                        <rect id="Rectangle" x="0" y="0" width="28" height="28"></rect>
+                        <g id="Group-15" transform="translate(5.833333, 3.500000)" stroke="#000000">
+                            <path d="M6.35185185,19.173913 C6.58858172,19.9853435 7.32848487,20.542706 8.16893518,20.542706 C9.0093855,20.542706 9.74928865,19.9853435 9.98601851,19.173913" id="Path"></path>
+                            <path d="M8.16666667,2.05434783 L8.16666667,0" id="Path"></path>
+                            <path d="M8.16666667,2.05434783 C11.9252712,2.05434783 14.9722222,5.12022399 14.9722222,8.90217391 C14.9722222,15.3354783 16.3333333,16.4347826 16.3333333,16.4347826 L0,16.4347826 C0,16.4347826 1.36111111,14.6853914 1.36111111,8.90217391 C1.36111111,5.12022399 4.40806212,2.05434783 8.16666667,2.05434783 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,424 @@
+// Bootstrap variables
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$blue:    #1177d1 !default;
+$indigo:  #6610f2 !default;
+$purple:  #613d7c !default;
+$pink:    #e83e8c !default;
+$red:     #ff0000 !default;
+$orange:  #f0ad4e !default;
+$yellow:  #ff7518 !default;
+$green:   #398439 !default;
+$teal:    #20c997 !default;
+$cyan:    #5bc0de !default;
+
+$primary:       $red !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $orange !default;
+$danger:        #dd3333 !default;
+$secondary:     $gray-400 !default;
+
+$info-outline:    #1f7e9a;
+$warning-outline: #a6670e;
+
+// Options
+$enable-rounded: false !default;
+
+// Body
+$body-color:    $gray-800 !default;
+
+// Fonts
+$font-size-base: 0.9375rem !default;
+$headings-font-weight:   300 !default;
+
+// Navbar
+$navbar-dark-hover-color:           rgba($white, 1) !default;
+$navbar-light-hover-color:          rgba($black, .9) !default;
+
+// Breadcrumbs
+$breadcrumb-padding-y:              .25rem !default;
+$breadcrumb-padding-x:              0 !default;
+$breadcrumb-item-padding:           .5rem !default;
+$breadcrumb-margin-bottom:          0 !default;
+$breadcrumb-bg:                     transparent !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-divider-rtl: "/" !default;
+
+// Alerts
+$alert-border-width:                0 !default;
+
+$card-group-margin: .25rem;
+
+// stylelint-disable
+$theme-colors: () !default;
+$theme-colors: map-merge((
+        primary: $primary,
+        secondary: $secondary,
+        success: $success,
+        info: $info,
+        warning: $warning,
+        danger: $danger,
+), $theme-colors);
+// stylelint-enable
+
+// Import FontAwesome.
+@import "fontawesome";
+
+// Import All of Bootstrap
+@import "bootstrap";
+
+// Import Core moodle CSS
+@import "moodle";
+
+// Import fonts.
+@import "fonts.scss";
+
+// Preset CSS
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+}
+
+.filemanager-container,
+.filepicker-filelist {
+    @extend .border;
+}
+
+// Rounded user pictures
+.userpicture {
+    border-radius: 50%;
+}
+
+// Reset the default styling back to the bootstrap defaults for
+// the secondary outline button because gray-200 is much too light
+// for an outline button.
+.btn-outline-secondary {
+    @include button-outline-variant($gray-600);
+    border-color: $gray-600;
+}
+
+.btn-outline-info {
+    @include button-outline-variant($info-outline);
+}
+
+.btn-outline-warning {
+    @include button-outline-variant($warning-outline);
+}
+
+@include bg-variant(".bg-gray", $gray-200);
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: "CircularStdBook", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #f7f7f7;
+    a {
+        color: #ff0000;
+    }
+}
+
+.list-group-item {
+    border: none !important;
+    .media-body {
+        font-size: 16px;
+        font-family: "CircularStdMedium", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+}
+.list-group-item.active {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    .media-body.font-weight-bold {
+        font-size: 20px;
+        font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+}
+
+nav.fixed-top {
+    /* Top nav size */
+    height: 72px;
+    min-height: 72px;
+    /* Top nav burger button */
+    > div > button.btn.bg-gray {
+        background-color: transparent !important;
+        border: none;
+        min-height: 24px;
+        min-width: 38px;
+        margin-left: 22px !important;
+        margin-right: 24px !important;
+        background-image: url([[pix:theme|burger-menu]]);
+        background-repeat: no-repeat;
+        background-size: cover;
+        i {
+            display: none;
+        }
+    }
+}
+#page {
+    margin-top: 56px;
+}
+
+/* Top nav burger button */
+nav.fixed-top > div > button.btn.bg-gray {
+    background-color: transparent !important;
+    border: none;
+}
+
+/* Site name and logo*/
+.navbar-brand .site-name{
+    color: $primary;
+    position: relative;
+    margin-left: 1rem;
+}
+
+nav.navbar {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    .logo img {
+        max-height: 58px;
+        margin-bottom: -42px;
+    }
+    .nav.navbar-nav.ml-auto {
+        > li.nav-item .popover-region {
+            margin-right: 1rem;
+            i.icon.fa {
+                width: 1.25rem;
+                height: 1.25rem;
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                &.fa-bell.fa-fw:before {
+                    background-image: url([[pix:theme|notifications]]);
+                }
+                &.fa-comment.fa-fw:before {
+                    background-image: url([[pix:theme|chat]]);
+                }
+            }
+        }
+    }
+}
+
+#action-menu-toggle-1:after {
+    color: black !important;
+    font-size: 1.5rem;
+}
+
+/** Menu styling **/
+#nav-drawer {
+    margin-top: 2px;
+    background-color: $white;
+    .media-left i {
+        // Remove icons
+        display: none;
+    }
+    nav.list-group {
+        margin-top: 41px;
+        ul li a {
+            border: none;
+            &.list-group-item.active {
+                color: $primary;
+                background-color: white;
+            }
+        }
+    }
+    /** Remove site menu options **/
+    .list-group-item {
+        &[data-key="grades"],
+        &[data-key="calendar"],
+        &[data-key="privatefiles"],
+        &[data-key="competencies"],
+        &[data-key="badgesview"] {
+            display: none;
+        }
+    }
+}
+
+#page-header {
+    .card-body {
+        margin: 0 -15px;
+        background-image: url([[pix:theme|site-cover]]);
+        min-height: 400px;
+        background-size: cover;
+        background-position: center;
+        padding: 100px;
+    }
+    .page-header-headings h1 {
+        color: white;
+        font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 68px;
+        font-weight: 900;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.06;
+        letter-spacing: normal;
+    }
+}
+
+
+#page-navbar {
+    .breadcrumb-item {
+        &,
+        & + .breadcrumb-item::before,
+        a {
+            color: $white;
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            font-family: "CircularStdBook", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        a[aria-current="page"] {
+            color: red;
+            font-family: "CircularStdMedium", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+    }
+}
+
+/** COURSE STUFF **/
+body.pagelayout-course {
+    #page-header {
+        .card-body {
+            margin: 0 0;
+            background-image: url([[pix:theme|course-cover]]);
+            background-position: center;
+        }
+        #action-menu-toggle-2 {
+            color: $white;
+        }
+    }
+    #page {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #region-main {
+        padding-left: 32px;
+        padding-right: 32px;
+        background-color: transparent;
+        border: none;
+    }
+    /** Make section navigation overlay hero image header **/
+    #page-content {
+        margin-top: -125px;
+    }
+
+    #section-carousel-content {
+        background-color: #fff;
+        padding: 2em;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    #section-carousel-content-tile {
+        margin-top: 1em;
+        margin-left: 1em;
+        margin-bottom: 1.5em;
+        font-size: 44px;
+        font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .card.subsection {
+        border: none;
+        border-bottom: 1px solid $black;
+        .card-header {
+            background-color: $white;
+            border-bottom: none;
+        }
+        span.inplaceeditable[data-itemtype="sectionname"] {
+            display: none;
+        }
+        .subsection-title {
+            color: $black;
+            font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 32px;
+        }
+        h2.subsection-heading button {
+            display: flex;
+            flex-direction: row;
+            .toggleicon {
+                margin-left: auto;
+                width: 16px;
+                display: block;
+                transform: rotate(180deg);
+            }
+
+            &.collapsed .toggleicon {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    .activityinstance .instancename {
+        color: $black;
+        font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+
+
+/** Section styling **/
+ul.visualsections {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #FFFFFF;
+    display:block;
+    margin-top:2em !important;
+    margin-left:10px !important;
+    margin-right:10px !important;
+}
+#section-0 {
+    display: none;
+}
+body.format-visualsections li.section {
+    padding-top:4em !important;
+    margin-bottom: 0;
+}
+body.format-visualsections li.section h3.sectionname {
+    font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 44px;
+    a {
+        color: black;
+    }
+}
+
+#page-course-view-visualsections .course-content ul li.section.main {
+    border: none;
+}
+#page-course-view-visualsections .course-content ul li.section.main:not(:nth-child(1)) {
+    border: none;
+    padding:2em 0;
+}
+
+/** Footer **/
+#page-footer {
+    background-color: red !important;
+    min-height: 291px;
+    box-sizing: border-box;
+    text-align: right;
+    background-image: url([[pix:theme|logo-footer]]);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position-x: 10%;
+    .sitelink a img {
+        margin: 1em 0;
+    }
+}
