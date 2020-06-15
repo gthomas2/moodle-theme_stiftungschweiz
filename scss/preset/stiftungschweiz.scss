@@ -6,7 +6,7 @@ $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
-$gray-700: #495057 !default;
+$gray-700: #000000 !default; // Nasty way of ensuring this is black.
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
@@ -26,7 +26,7 @@ $primary:       $red !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $orange !default;
-$danger:        #dd3333 !default;
+$danger:        #cc3333 !default;
 $secondary:     $gray-400 !default;
 
 $info-outline:    #1f7e9a;
@@ -59,6 +59,9 @@ $breadcrumb-divider-rtl: "/" !default;
 $alert-border-width:                0 !default;
 
 $card-group-margin: .25rem;
+
+// Buttons
+$btn-secondary-color: #cdc6ba;
 
 // stylelint-disable
 $theme-colors: () !default;
@@ -128,6 +131,10 @@ body {
     a {
         color: #ff0000;
     }
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .path-calendar .maincalendar .calendar-controls .current, .h3, .h4, .h5, .h6 {
+    font-weight: 900;
 }
 
 .list-group-item {
@@ -240,6 +247,7 @@ nav.navbar {
     }
     /** Remove site menu options **/
     .list-group-item {
+        &[href*="section-0"], // Hide section 0 link.
         &[data-key="grades"],
         &[data-key="calendar"],
         &[data-key="privatefiles"],
@@ -247,6 +255,15 @@ nav.navbar {
         &[data-key="badgesview"] {
             display: none;
         }
+    }
+
+    .list-group-item-action {
+        color: $black;
+    }
+
+    .list-group-item-action:hover {
+        color: $primary;
+        background: none;
     }
 }
 
@@ -270,7 +287,6 @@ nav.navbar {
         letter-spacing: normal;
     }
 }
-
 
 #page-navbar {
     .breadcrumb-item {
@@ -389,8 +405,11 @@ ul.visualsections {
     display: none;
 }
 body.format-visualsections li.section {
-    padding-top:4em !important;
+    padding-top: 4em;
     margin-bottom: 0;
+    .subsection li.section {
+        padding-top: 0;
+    }
 }
 body.format-visualsections li.section h3.sectionname {
     font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -402,10 +421,12 @@ body.format-visualsections li.section h3.sectionname {
 
 #page-course-view-visualsections .course-content ul li.section.main {
     border: none;
+    padding-bottom: 4em;
 }
 #page-course-view-visualsections .course-content ul li.section.main:not(:nth-child(1)) {
     border: none;
-    padding:2em 0;
+    padding: 2em 0;
+    padding-bottom: 4em;
 }
 
 /** Footer **/
@@ -420,5 +441,48 @@ body.format-visualsections li.section h3.sectionname {
     background-position-x: 10%;
     .sitelink a img {
         margin: 1em 0;
+    }
+}
+
+/** Buttons **/
+.btn-secondary, .btn-default {
+    color: #000000;
+    background-color: $btn-secondary-color;
+    border-color: darken($btn-secondary-color, 5%);
+    &:hover {
+        background-color: darken($btn-secondary-color, 10%);
+        border-color: darken($btn-secondary-color, 15%);
+    }
+}
+
+/** Quiz / feedback **/
+.alert-info,
+#page-admin-index .releasenoteslink,
+#adminsettings .form-overridden,
+.que .formulation,
+.assignfeedback_editpdf_widget .label {
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.que div.formulation table {
+    border: none !important;
+}
+
+.que .info {
+    background: none;
+}
+
+/** Labels **/
+.modtype_label {
+    div.no-overflow {
+        overflow: visible !important;
+    }
+    img.fullwidth {
+        width: calc(100% + 340px) !important;
+        height: auto;
+        margin-left: -175px;
+        margin-right: -175px;
+        max-width: calc(100% + 340px) !important;;
     }
 }

@@ -38,6 +38,7 @@ $THEME->precompiledcsscallback = 'theme_stiftungschweiz_get_precompiled_css';
 $THEME->yuicssmodules = array();
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = '';
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->scss = function($theme) {
     return theme_stiftungschweiz_get_main_scss_content($theme);
 };
