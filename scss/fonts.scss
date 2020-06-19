@@ -40,3 +40,19 @@
     font-weight: 500;
     font-style: normal;
 }
+
+@mixin font-circular-std-book {
+    font-family: "CircularStdBook", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@mixin font-circular-std-medium {
+    font-family: "CircularStdMedium", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@mixin font-circular-std-bold {
+    font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+@mixin font-circular-std-black {
+    font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

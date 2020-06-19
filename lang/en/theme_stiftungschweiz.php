@@ -29,3 +29,4 @@ defined('MOODLE_INTERNAL') || die();
 $string['choosereadme'] = 'Stiftungschweiz bespoke theme based on Boost.';
 $string['configtitle'] = 'Stiftungschweiz';
 $string['pluginname'] = 'Stiftungschweiz';
+$string['region-side-pre'] = 'Right';

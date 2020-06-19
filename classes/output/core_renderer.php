@@ -36,6 +36,17 @@ class core_renderer extends \core_renderer {
     }
 
     /**
+     * Returns the CSS classes to apply to the body tag.
+     *
+     * @since Moodle 2.5.1 2.6
+     * @param array $additionalclasses Any additional classes to apply.
+     * @return string
+     */
+    public function body_css_classes(array $additionalclasses = array()) {
+        return parent::body_css_classes($additionalclasses).' theme_stiftungschweiz';
+    }
+
+    /**
      * Return the 'back' link that normally appears in the footer.
      *
      * @return string HTML fragment.

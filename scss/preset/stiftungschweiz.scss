@@ -36,7 +36,7 @@ $warning-outline: #a6670e;
 $enable-rounded: false !default;
 
 // Body
-$body-color:    $gray-800 !default;
+$body-color:    $black !default;
 
 // Fonts
 $font-size-base: 0.9375rem !default;
@@ -123,7 +123,7 @@ $theme-colors: map-merge((
 
 body {
     -webkit-font-smoothing: antialiased;
-    font-family: "CircularStdBook", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @include font-circular-std-book;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .path-calendar .maincalendar .calendar-control
     border: none !important;
     .media-body {
         font-size: 16px;
-        font-family: "CircularStdMedium", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        @include font-circular-std-medium;
     }
 }
 .list-group-item.active {
@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .path-calendar .maincalendar .calendar-control
     border-color: #ff0000;
     .media-body.font-weight-bold {
         font-size: 20px;
-        font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        @include font-circular-std-bold;
     }
 }
 
@@ -188,6 +188,15 @@ nav.fixed-top > div > button.btn.bg-gray {
     color: $primary;
     position: relative;
     margin-left: 1rem;
+    font-size: 20px;
+    @include font-circular-std-bold;
+}
+
+/* Using theme_stiftungschweiz to force specificity of selectors */
+body.theme_stiftungschweiz {
+    .navbar-light .navbar-nav .nav-link {
+        color: $black;
+    }
 }
 
 nav.navbar {
@@ -278,7 +287,7 @@ nav.navbar {
     }
     .page-header-headings h1 {
         color: white;
-        font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        @include font-circular-std-black;
         font-size: 68px;
         font-weight: 900;
         font-stretch: normal;
@@ -300,11 +309,11 @@ nav.navbar {
             font-style: normal;
             line-height: normal;
             letter-spacing: normal;
-            font-family: "CircularStdBook", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            @include font-circular-std-book;
         }
         a[aria-current="page"] {
             color: red;
-            font-family: "CircularStdMedium", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            @include font-circular-std-medium;
         }
     }
 }
@@ -347,22 +356,27 @@ body.pagelayout-course {
         margin-left: 1em;
         margin-bottom: 1.5em;
         font-size: 44px;
-        font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        @include font-circular-std-black;
     }
 
     .card.subsection {
         border: none;
-        border-bottom: 1px solid $black;
+        border-bottom: 5px solid $black;
         .card-header {
             background-color: $white;
             border-bottom: none;
+        }
+        .subsection-heading .btn-link {
+            &, &:hover {
+                text-decoration: none;
+            }
         }
         span.inplaceeditable[data-itemtype="sectionname"] {
             display: none;
         }
         .subsection-title {
             color: $black;
-            font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            @include font-circular-std-bold;
             font-size: 32px;
         }
         h2.subsection-heading button {
@@ -381,15 +395,24 @@ body.pagelayout-course {
         }
     }
 
-    .activityinstance .instancename {
-        color: $black;
-        font-family: "CircularStdBold", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-size: 20px;
-        font-weight: bold;
+    .activityinstance {
+        .instancename {
+            color: $black;
+            @include font-circular-std-bold;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        a {
+            text-decoration: solid underline black 2px;
+            &:hover {
+                text-decoration: none;
+                .instancename {
+                    color: $primary;
+                }
+            }
+        }
     }
 }
-
-
 
 /** Section styling **/
 ul.visualsections {
@@ -412,10 +435,13 @@ body.format-visualsections li.section {
     }
 }
 body.format-visualsections li.section h3.sectionname {
-    font-family: "CircularStdBlack", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @include font-circular-std-black;
     font-size: 44px;
     a {
         color: black;
+        &:hover {
+            text-decoration: none !important;
+        }
     }
 }
 
@@ -442,6 +468,9 @@ body.format-visualsections li.section h3.sectionname {
     .sitelink a img {
         margin: 1em 0;
     }
+}
+#course-footer {
+    padding-top: 2em;
 }
 
 /** Buttons **/
