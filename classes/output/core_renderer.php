@@ -43,7 +43,12 @@ class core_renderer extends \core_renderer {
      * @return string
      */
     public function body_css_classes(array $additionalclasses = array()) {
-        return parent::body_css_classes($additionalclasses).' theme_stiftungschweiz';
+        global $PAGE;
+        if ($PAGE->context->contextlevel === CONTEXT_MODULE) {
+            $additionalclasses[] = 'context-level-module'; // This is so we can use the course header for modules.
+        }
+        $additionalclasses[] = 'theme_stiftungschweiz';
+        return parent::body_css_classes($additionalclasses);
     }
 
     /**

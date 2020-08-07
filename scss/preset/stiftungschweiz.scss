@@ -326,7 +326,16 @@ nav.navbar {
 }
 
 /** COURSE STUFF **/
-body.pagelayout-course, body.pagelayout-incourse {
+body.pagelayout-incourse, body.context-level-module {
+    #page-header {
+        .card-body {
+            margin: 0 0;
+            background-image: url([[pix:theme|course-cover]]);
+            background-position: center;
+        }
+    }
+}
+body.pagelayout-course {
     .region_main_settings_menu_proxy {
         background-color: transparent;
     }
