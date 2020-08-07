@@ -405,7 +405,7 @@ body.pagelayout-course {
     .activityinstance {
         .instancename {
             color: $black;
-            @include font-circular-std-bold;
+            @include font-circular-std-black;
             font-size: 20px;
             font-weight: bold;
         }
