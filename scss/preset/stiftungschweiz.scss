@@ -267,7 +267,8 @@ nav.navbar {
         &[data-key="calendar"],
         &[data-key="privatefiles"],
         &[data-key="competencies"],
-        &[data-key="badgesview"] {
+        &[data-key="badgesview"],
+        &[data-key="mycourses"] {
             display: none;
         }
     }
