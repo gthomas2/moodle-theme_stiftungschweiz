@@ -244,9 +244,11 @@ nav.navbar {
 #nav-drawer {
     margin-top: 2px;
     background-color: $white;
-    .media-left i {
-        // Remove icons
-        display: none;
+    .media-left {
+        i, img {
+            // Remove icons
+            display: none;
+        }
     }
     nav.list-group {
         margin-top: 41px;
