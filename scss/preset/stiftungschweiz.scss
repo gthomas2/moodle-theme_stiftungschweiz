@@ -326,7 +326,10 @@ nav.navbar {
 }
 
 /** COURSE STUFF **/
-body.pagelayout-course {
+body.pagelayout-course, body.pagelayout-incourse {
+    .region_main_settings_menu_proxy {
+        background-color: transparent;
+    }
     #page-header {
         .card-body {
             margin: 0 0;
