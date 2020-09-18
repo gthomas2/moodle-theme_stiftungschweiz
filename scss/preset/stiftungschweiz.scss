@@ -383,38 +383,8 @@ body.pagelayout-course {
     }
 
     .card.subsection {
-        border: none;
-        border-bottom: 5px solid $black;
-        .card-header {
-            background-color: $white;
-            border-bottom: none;
-        }
-        .subsection-heading .btn-link {
-            &, &:hover {
-                text-decoration: none;
-            }
-        }
-        span.inplaceeditable[data-itemtype="sectionname"] {
-            display: none;
-        }
         .subsection-title {
-            color: $black;
             @include font-circular-std-bold;
-            font-size: 32px;
-        }
-        h2.subsection-heading button {
-            display: flex;
-            flex-direction: row;
-            .toggleicon {
-                margin-left: auto;
-                width: 16px;
-                display: block;
-                transform: rotate(180deg);
-            }
-
-            &.collapsed .toggleicon {
-                transform: rotate(0deg);
-            }
         }
     }
 
