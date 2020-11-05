@@ -508,3 +508,19 @@ body.format-visualsections li.section h3.sectionname {
         max-width: calc(100% + 340px) !important;;
     }
 }
+
+// Example changing stroke colours via theme css.
+svg.svg-circle {
+    stroke: #ccc;
+    .subsection-progress {
+        stroke: $primary;
+    }
+}
+body.format-visualsections #section-carousel {
+    .sectiontitle .badge-primary {
+        background-color: $primary;
+    }
+    .circle-link.circle-link-unlocked {
+        border-color: $primary;
+    }
+}
