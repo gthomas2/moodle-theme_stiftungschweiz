@@ -515,7 +515,11 @@ svg.svg-circle {
     .subsection-progress {
         stroke: $primary;
     }
+    rect {
+        stroke: none;
+    }
 }
+
 body.format-visualsections #section-carousel {
     .sectiontitle .badge-primary {
         background-color: $primary;
