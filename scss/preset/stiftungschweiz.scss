@@ -205,6 +205,16 @@ body.theme_stiftungschweiz {
     .navbar-light .navbar-nav .nav-link {
         color: $black;
     }
+    .dropdown-item {
+        &:active,
+        &:hover,
+        &:focus,
+        &:focus-within {
+            a {
+                color: $brand-primary;
+            }
+        }
+    }
 }
 
 nav.navbar {

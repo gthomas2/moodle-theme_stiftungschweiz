@@ -25,6 +25,8 @@
 // This line protects the file from being accessed by a URL directly.
 defined('MOODLE_INTERNAL') || die();
 
+use theme_stiftungschweiz\local\lib;
+
 /**
  * Returns the main SCSS content.
  *
@@ -141,4 +143,12 @@ function theme_stiftungschweiz_pluginfile($course, $cm, $context, $filearea, $ar
     } else {
         send_file_not_found();
     }
+}
+
+function theme_stiftungschweiz_before_standard_html_head() {
+    global $COURSE;
+    if ($COURSE->id !== SITEID) {
+        return lib::course_coverimage_style($COURSE->id);
+    }
+    return '';
 }
