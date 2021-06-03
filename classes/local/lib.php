@@ -84,7 +84,7 @@ class lib {
         if (!$file) {
             return null;
         }
-        return moodle_url::make_pluginfile_url(
+        $url = moodle_url::make_pluginfile_url(
             $file->get_contextid(),
             $file->get_component(),
             $file->get_filearea(),
@@ -92,6 +92,13 @@ class lib {
             $file->get_filepath(),
             $file->get_filename()
         );
+
+        if ($file->get_component() === 'course') {
+            // The course overview files image cannot contain an item id or it breaks.
+            $url = new moodle_url(str_replace('/0/', '/', $url));
+        }
+
+        return $url;
     }
 
     /**
